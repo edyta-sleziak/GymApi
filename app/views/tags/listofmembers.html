@@ -1,0 +1,6 @@
+#{list items: _membersLabel, as:'member'}
+<div class="ui segment">
+  <a href="/member/${member.id}">${member.getName().toUpperCase()}</a><br />
+  Number of assessments: ${member.numberOfAssessments()}
+</div>
+#{/list}

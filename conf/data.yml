@@ -1,0 +1,42 @@
+Assessment(a1):
+  date: 17/04/18
+  weight: 67
+  chest: 89
+  thigh: 50
+  upperArm: 45
+  waist: 69
+  hips: 87
+
+Assessment(a2):
+  date: 17/04/18
+  weight: 67
+  chest: 89
+  thigh: 50
+  upperArm: 45
+  waist: 69
+  hips: 87
+
+Member(m1):
+  name: testuser
+  email: test@mail
+  password: 1234
+  address: 123 street
+  gender: f
+  height: 1.68
+  currentBMI:
+  assessments:
+  - a1
+  - a2
+
+Member(m2):
+  name: testuser2
+  email: test2@mail
+  password: 1234
+  address: 123 street
+  gender: f
+  height: 1.68
+  assessments:
+
+Trainer(t1):
+  email: trainer@mail
+  password: trainer123

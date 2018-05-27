@@ -1,0 +1,85 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{trainermenu id:"dashboard"/}
+
+#{list items: _member, as: 'member' /}
+
+<section class="ui center aligned segment">
+  <div class ="ui grid">
+    <div class ="four wide column">
+      <i class ="huge user icon"></i><br />
+      <h4 class="ui header">
+      ${member.getName().toUpperCase()}
+      </h4>
+    </div>
+    <div class ="four wide column">
+      <i class="huge dashboard icon"></i><br />
+      <h4 class="ui header">
+        IDEAL WEIGHT: <br /> ${member.idealBodyWeight} KGs
+      </h4>
+    </div>
+    <div class ="four wide column">
+      <i class="huge heartbeat icon"></i><br />
+      <h4 class="ui header">
+        BMI: ${member.currentBMI}
+      </h4>
+    </div>
+    <div class ="four wide column">
+      <i class="huge doctor icon"></i><br />
+      <h4 class="ui header">
+      ${member.getCurrentBMICategory()}
+      </h4>
+    </div>
+  </div>
+</section>
+
+#{list items: member.assessments, as:'assessment'}
+<div class="ui segment">
+  <table class="ui fixed table">
+    <thead>
+    <tr>
+      <th>Weight (kg)</th>
+      <th>Chest (cm)</th>
+      <th>Thigh (cm)</th>
+      <th>Upper arm (cm)</th>
+      <th>Waist (cm)</th>
+      <th>Hips (cm)</th>
+      <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+      ${assessment.weight}
+      </td>
+      <td>
+      ${assessment.chest}
+      </td>
+      <td>
+      ${assessment.thigh}
+      </td>
+      <td>
+      ${assessment.upperArm}
+      </td>
+      <td>
+      ${assessment.waist}
+      </td>
+      <td>
+      ${assessment.hips}
+      </td>
+      <td>
+      ${assessment.comment}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <form class="ui form" action="/member/${member.id}/${assessment.id}/addComment" method="POST">
+    <div class="field">
+      <label>Add comment:</label>
+      <input placeholder="Comment" type="text" name="comment">
+    </div>
+    <button class="ui green submit button">Add comment</button>
+  </form>
+</div>
+#{/list}

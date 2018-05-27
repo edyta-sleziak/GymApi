@@ -1,0 +1,74 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{menu id:"dashboard"/}
+
+<section class="ui center aligned segment">
+  <div class ="ui grid">
+    <div class ="four wide column">
+      <i class ="huge user icon"></i><br />
+      <h4 class="ui header">
+      ${member.name.toUpperCase()}
+      </h4>
+    </div>
+    <div class ="four wide column">
+      <i class="huge dashboard icon"></i><br />
+      <h4 class="ui header">
+        IDEAL WEIGHT: <br /> ${member.idealBodyWeight} KGs
+      </h4>
+    </div>
+    <div class ="four wide column">
+      <i class="huge heartbeat icon"></i><br />
+      <h4 class="ui header">
+        BMI: ${member.currentBMI}
+      </h4>
+    </div>
+    <div class ="four wide column">
+      <i class="huge doctor icon"></i><br />
+      <h4 class="ui header">
+      ${member.getCurrentBMICategory()}
+      </h4>
+    </div>
+  </div>
+</section>
+
+<section class="ui segment">
+  <form class="ui form" action="/dashboard/addAssessment" method="POST">
+
+    <h3 class="ui header">Add new assessment</h3>
+    <div class="fields">
+      <div class="field">
+        <label>Weight (in kg)</label>
+        <input placeholder="0.0" type="text" name="weight" />
+      </div>
+      <div class="field">
+        <label>Chest (in cm)</label>
+        <input placeholder="0.0" type="text" name="chest" />
+      </div>
+      <div class="field">
+        <label>Thigh (in cm)</label>
+        <input placeholder="0.0" type="text" name="thigh" />
+      </div>
+      <div class="field">
+        <label>Upper arm (in cm)</label>
+        <input placeholder="0.0" type="text" name="upperArm" />
+      </div>
+      <div class="field">
+        <label>Waist (in cm)</label>
+        <input placeholder="0.0" type="text" name="waist" />
+      </div>
+      <div class="field">
+        <label>Hips (in cm)</label>
+        <input placeholder="0.0" type="text" name="hips" />
+      </div>
+    </div>
+    <button class="ui green submit button">Add new assessment</button>
+  </form>
+</section>
+
+<section class="ui segment">
+  <h2 class="ui header">
+    Assessments
+  </h2>
+#{listofassessments assessments : assessments/}
+</section>

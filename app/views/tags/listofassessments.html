@@ -1,0 +1,40 @@
+<table class="ui fixed table">
+  <thead>
+  <tr>
+    <th>Weight (kg)</th>
+    <th>Chest (cm)</th>
+    <th>Thigh (cm)</th>
+    <th>Upper arm (cm)</th>
+    <th>Waist (cm)</th>
+    <th>Hips (cm)</th>
+    <th>Comment</th>
+  </tr>
+  </thead>
+  <tbody>
+  #{list items: _assessments, as:'assessment'}
+  <tr>
+    <td>
+    ${assessment.weight}
+    </td>
+    <td>
+    ${assessment.chest}
+    </td>
+    <td>
+    ${assessment.thigh}
+    </td>
+    <td>
+    ${assessment.upperArm}
+    </td>
+    <td>
+    ${assessment.waist}
+    </td>
+    <td>
+    ${assessment.hips}
+    </td>
+    <td>
+    ${assessment.comment}
+    </td>
+  </tr>
+  #{/list}
+  </tbody>
+</table>

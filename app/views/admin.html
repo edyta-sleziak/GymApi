@@ -1,0 +1,51 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{menu id:"admin"/}
+
+<div class="ui two column middle aligned grid basic segment">
+  <div class="column">
+    <form class="ui stacked segment form" action="/updateDetails" method="POST">
+      <h2 class="ui header">
+        Update your details:</h2>
+      <div class="fields">
+        <div class="field">
+          <label>Name</label>
+          <input value=${member.getName()} type="text" name="name" />
+        </div>
+        <div class="field">
+          <label>Gender (F / M)</label>
+          <input value=${member.getGender().toUpperCase()} type="text" name="gender" />
+        </div>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input value=${member.getEmail()} type="text" name="email" />
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input value=${member.getPassword()} type="password" name="password" />
+      </div>
+      <div class="field">
+        <label>Address</label>
+        <input value=${member.getAddress()} type="text" name="address" />
+      </div>
+      <div class="fields">
+        <div class="field">
+          <label>Height</label>
+          <input value=${member.getHeight()} type="text" name="height" />
+        </div>
+        <div class="field">
+          <label>Start weight</label>
+          <input value=${member.getStartWeight()} type="text" name="startWeight" />
+        </div>
+      </div>
+      <button class="ui green submit button">Update</button>
+    </form>
+  </div>
+  <div class="column">
+    <img class="ui image large" src="/public/images/about.png">
+  </div>
+</div>
+
+
